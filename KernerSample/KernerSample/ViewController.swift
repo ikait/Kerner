@@ -26,7 +26,7 @@ class TestView: UIView {
                 .paragraphStyle: self.paragraphStyle,
                 .font: UIFont.systemFont(ofSize: 14),
             ]
-        ).bracketsKerned()  // This make kerning to brackets enable 
+        ).kernBrackets()  // This make kerning to brackets enable
         return attrstr
     }()
 

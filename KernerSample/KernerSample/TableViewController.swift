@@ -33,7 +33,7 @@ class CellView: UIView {
                     .paragraphStyle: paragraphStyle,
                     .font: UIFont.systemFont(ofSize: 14)
                 ]
-            ).bracketKerned()
+            ).kernBrackets()
         }
     }
 

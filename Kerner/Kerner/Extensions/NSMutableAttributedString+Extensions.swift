@@ -51,7 +51,7 @@ public enum KerningType {
 public extension NSMutableAttributedString {
 
     @discardableResult
-    private func kerned(_ regexp: NSRegularExpression, negativeSpace: CGFloat = 0 - KerningDefaultNegativeSpaceRatio) -> Self {
+    private func kern(_ regexp: NSRegularExpression, negativeSpace: CGFloat = 0 - KerningDefaultNegativeSpaceRatio) -> Self {
         self.beginEditing()
         regexp.enumerateMatches(in: self.string, options: [], range: NSMakeRange(0, self.length)) { [weak self] (result, _, _) in
             guard let result = result, let `self` = self else { return }
@@ -64,14 +64,15 @@ public extension NSMutableAttributedString {
         return self
     }
 
-    public func kerned(with type: KerningType) -> Self {
+    public func kern(with type: KerningType) -> Self {
         type.setting.forEach { args in
-            self.kerned(args.regexp, negativeSpace: args.negativeSpace)
+            self.kern(args.regexp, negativeSpace: args.negativeSpace)
         }
         return self
     }
 
-    public func bracketsKerned() -> Self {
+    @discardableResult
+    public func kernBrackets() -> Self {
         self.beginEditing()
         regexpBrackets.enumerateMatches(in: self.string, options: [], range: NSMakeRange(0, self.length)) { [weak self] (result, _, _) in
             guard let result = result, let `self` = self else { return }

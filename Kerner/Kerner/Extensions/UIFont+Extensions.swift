@@ -10,7 +10,9 @@ import UIKit
 import CoreText
 
 public extension UIFont {
+
     public var altHalf: UIFont {
+
         let featureSettings: [[UIFontDescriptor.FeatureKey: Int]] = [
             [
                 .featureIdentifier: kTextSpacingType,
@@ -18,9 +20,12 @@ public extension UIFont {
             ]
         ]
 
-        return UIFont(descriptor: UIFontDescriptor(fontAttributes: [
-            .family: self.familyName.starts(with: ".SF") ? "Hiragino Sans" : self.familyName,
-            .featureSettings: featureSettings
-        ]) , size: self.pointSize)
+        var attributes = self.fontDescriptor.fontAttributes
+
+        attributes[.family] = self.familyName.starts(with: ".SF") ? "Hiragino Sans" : self.familyName
+        attributes[.featureSettings] = featureSettings
+
+        return UIFont(descriptor: UIFontDescriptor(fontAttributes: attributes),
+                      size: self.pointSize)
     }
 }
