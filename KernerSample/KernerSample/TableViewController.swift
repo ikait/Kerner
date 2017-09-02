@@ -70,7 +70,7 @@ class TableViewCell: UITableViewCell {
 
 class TableViewController: UITableViewController {
 
-    var images: [IndexPath: CGImage] = [:]
+    let heightCache = Cache<IndexPath, CGFloat>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,9 +88,14 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let view = CellView()
         view.text = Sentences[indexPath.row % Sentences.count]
+
+        if let height = self.heightCache.object(forKey: indexPath) {
+            return height
+        }
         let rect = view.attrstr.boundingRect(with: tableView.frame.integral.size,
                                              options: drawingOptions,
                                              context: nil).integral
+        self.heightCache.setObject(rect.height, forKey: indexPath)
         return rect.height
     }
 
