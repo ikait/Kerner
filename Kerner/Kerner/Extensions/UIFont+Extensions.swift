@@ -13,6 +13,25 @@ public extension UIFont {
 
     public var altHalf: UIFont {
 
+        let weight: UIFont.Weight = {
+
+            var weight = UIFont.Weight.regular
+
+            let usageAttribute = self.fontDescriptor.fontAttributes[
+                .init(rawValue: "NSCTFontUIUsageAttribute")] as? String ?? ""
+
+            switch usageAttribute {
+                case "CTFontEmphasizedUsage", "CTFontBoldUsage":
+                    weight = .bold
+                default:
+                    break
+            }
+
+            return weight
+        }()
+
+        let familyName = self.familyName.starts(with: ".SF") ? "Hiragino Sans" : self.familyName
+
         let featureSettings: [[UIFontDescriptor.FeatureKey: Int]] = [
             [
                 .featureIdentifier: kTextSpacingType,
@@ -20,12 +39,16 @@ public extension UIFont {
             ]
         ]
 
-        var attributes = self.fontDescriptor.fontAttributes
+        let traits: [UIFontDescriptor.TraitKey: CGFloat] = [
+            .weight: weight.rawValue
+        ]
 
-        attributes[.family] = self.familyName.starts(with: ".SF") ? "Hiragino Sans" : self.familyName
-        attributes[.featureSettings] = featureSettings
+        let fontDescriptor = UIFontDescriptor(fontAttributes: [
+            .family: familyName,
+            .traits: traits,
+            .featureSettings: featureSettings,
+        ])
 
-        return UIFont(descriptor: UIFontDescriptor(fontAttributes: attributes),
-                      size: self.pointSize)
+        return UIFont(descriptor: fontDescriptor, size: self.pointSize)
     }
 }
