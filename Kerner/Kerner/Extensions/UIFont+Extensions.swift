@@ -30,7 +30,14 @@ public extension UIFont {
             return weight
         }()
 
-        let familyName = self.familyName.starts(with: ".SF") ? "Hiragino Sans" : self.familyName
+        var familyName = self.familyName
+
+        var pointSize = self.pointSize
+
+        if familyName.starts(with: ".SF") {
+            familyName = "Hiragino Sans"
+            pointSize = pointSize - 1
+        }
 
         let featureSettings: [[UIFontDescriptor.FeatureKey: Int]] = [
             [
@@ -49,6 +56,6 @@ public extension UIFont {
             .featureSettings: featureSettings,
         ])
 
-        return UIFont(descriptor: fontDescriptor, size: self.pointSize)
+        return UIFont(descriptor: fontDescriptor, size: self.pointSize - 1)
     }
 }
