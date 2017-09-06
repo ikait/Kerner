@@ -23,6 +23,8 @@ public extension UIFont {
             switch usageAttribute {
                 case "CTFontEmphasizedUsage", "CTFontBoldUsage":
                     weight = .bold
+                case "CTFontDemiUsage":
+                    weight = .bold
                 default:
                     break
             }
