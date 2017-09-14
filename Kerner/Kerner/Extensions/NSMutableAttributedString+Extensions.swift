@@ -27,6 +27,8 @@ public enum KerningType {
 
     case brackets(negativeSpaceRatio: CGFloat)
 
+    case bracketsBothSide(negativeSpaceRatio: CGFloat)
+
     fileprivate var setting: KerningSettings {
 
         switch self {
@@ -43,6 +45,11 @@ public enum KerningType {
                  negativeSpace: 0 - negativeSpaceRatio),
                 (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)])(?=[\(k括弧開)])", options: []),
                  negativeSpace: 0 - max(negativeSpaceRatio, KerningDefaultNegativeSpaceRatio) * 2)
+            ]
+        case let .bracketsBothSide(negativeSpaceRatio):
+            return [
+                (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)])|([^\(k句読点)])(?=[\(k括弧開)])", options: []),
+                 negativeSpace: 0 - negativeSpaceRatio)
             ]
         }
     }
@@ -72,7 +79,7 @@ public extension NSMutableAttributedString {
     }
 
     @discardableResult
-    public func kernBrackets() -> Self {
+    public func kernBrackets(negativeSpaceRatio: CGFloat = 0) -> Self {
         self.beginEditing()
         regexpBrackets.enumerateMatches(in: self.string, options: [], range: NSMakeRange(0, self.length)) { [weak self] (result, _, _) in
             guard let result = result, let `self` = self else { return }
@@ -82,6 +89,10 @@ public extension NSMutableAttributedString {
             self.addAttribute(.font, value: font.altHalf, range: NSMakeRange(location, length))
         }
         self.endEditing()
+
+        guard negativeSpaceRatio == 0 else {
+            return self.kern(with: .bracketsBothSide(negativeSpaceRatio: negativeSpaceRatio))
+        }
         return self
     }
 
