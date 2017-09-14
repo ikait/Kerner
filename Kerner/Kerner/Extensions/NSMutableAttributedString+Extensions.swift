@@ -48,7 +48,7 @@ public enum KerningType {
             ]
         case let .bracketsBothSide(negativeSpaceRatio):
             return [
-                (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)])|([^\(k句読点)])(?=[\(k括弧開)])", options: []),
+                (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)])(?=[^\(k括弧開)\(k句読点)\\s])|([^\(k括弧閉)\(k句読点)\\s])(?=[\(k括弧開)])", options: []),
                  negativeSpace: 0 - negativeSpaceRatio)
             ]
         }
