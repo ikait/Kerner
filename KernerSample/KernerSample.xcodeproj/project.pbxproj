@@ -17,6 +17,8 @@
 		4D9441891F5ACC80007F4364 /* Kerner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6ACF5D1F5ACC0700082F80 /* Kerner.framework */; };
 		4D94418A1F5ACC80007F4364 /* Kerner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6ACF5D1F5ACC0700082F80 /* Kerner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DBABB111F5ACAB3004DC2C3 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBABB101F5ACAB3004DC2C3 /* Samples.swift */; };
+		4DE667331F7FE4F700067B6A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE667321F7FE4F700067B6A /* WebViewController.swift */; };
+		4DE667351F7FF5A800067B6A /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DE667341F7FF5A800067B6A /* sample.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		4D8650521F5AC8C80099498A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D86505E1F5AC9F90099498A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		4DBABB101F5ACAB3004DC2C3 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
+		4DE667321F7FE4F700067B6A /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4DE667341F7FF5A800067B6A /* sample.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +112,11 @@
 				4D8650461F5AC8C80099498A /* AppDelegate.swift */,
 				4D8650481F5AC8C80099498A /* ViewController.swift */,
 				4D86505E1F5AC9F90099498A /* TableViewController.swift */,
+				4DE667321F7FE4F700067B6A /* WebViewController.swift */,
 				4DBABB101F5ACAB3004DC2C3 /* Samples.swift */,
 				4D8129761F5B22AB00B2C9B9 /* Cache.swift */,
 				4D86504A1F5AC8C80099498A /* Main.storyboard */,
+				4DE667341F7FF5A800067B6A /* sample.html */,
 				4D86504D1F5AC8C80099498A /* Assets.xcassets */,
 				4D86504F1F5AC8C80099498A /* LaunchScreen.storyboard */,
 				4D8650521F5AC8C80099498A /* Info.plist */,
@@ -202,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE667351F7FF5A800067B6A /* sample.html in Resources */,
 				4D8650511F5AC8C80099498A /* LaunchScreen.storyboard in Resources */,
 				4D86504E1F5AC8C80099498A /* Assets.xcassets in Resources */,
 				4D86504C1F5AC8C80099498A /* Main.storyboard in Resources */,
@@ -216,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8650491F5AC8C80099498A /* ViewController.swift in Sources */,
+				4DE667331F7FE4F700067B6A /* WebViewController.swift in Sources */,
 				4D8129771F5B22AB00B2C9B9 /* Cache.swift in Sources */,
 				4DBABB111F5ACAB3004DC2C3 /* Samples.swift in Sources */,
 				4D86505F1F5AC9F90099498A /* TableViewController.swift in Sources */,
@@ -367,7 +375,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6MB3X54G28;
 				INFOPLIST_FILE = KernerSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -386,7 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6MB3X54G28;
 				INFOPLIST_FILE = KernerSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

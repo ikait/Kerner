@@ -9,11 +9,9 @@
 import UIKit
 
 fileprivate typealias KerningSettings = [(regexp: NSRegularExpression, negativeSpace: CGFloat)]
-fileprivate let KerningDefaultNegativeSpaceRatio: CGFloat = 0.5
-fileprivate let k句読点 = "、，。．"
-fileprivate let k括弧閉 = "｝］」』）｠〉》〕〙】〗"
-fileprivate let k括弧開 = "｛［「『（｟〈《〔〘【〖"
-fileprivate let k他約物 = "！？：；︰‐・…‥〜ー―※"
+
+fileprivate let kerningDefaultNegativeSpaceRatio: CGFloat = 0.5
+
 fileprivate let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
 
 fileprivate let regexpBrackets = try! NSRegularExpression(pattern: "[\(k括弧閉)\(k括弧開)]", options: [])
@@ -35,16 +33,16 @@ public enum KerningType {
         case let .all(negativeSpaceRatio):
             return [
                 (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)\(k句読点)])|(.)(?=[\(k括弧開)])", options: []),
-                 negativeSpace: 0 - max(negativeSpaceRatio, KerningDefaultNegativeSpaceRatio)),
+                 negativeSpace: 0 - max(negativeSpaceRatio, kerningDefaultNegativeSpaceRatio)),
                 (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)\(k句読点)])(?=[\(k括弧開)])", options: []),
-                 negativeSpace: -1 - max(negativeSpaceRatio, KerningDefaultNegativeSpaceRatio) * 2)
+                 negativeSpace: -1 - max(negativeSpaceRatio, kerningDefaultNegativeSpaceRatio) * 2)
             ]
         case let .brackets(negativeSpaceRatio):
             return [
                 (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)])|(.)(?=[\(k括弧開)])", options: []),
                  negativeSpace: 0 - negativeSpaceRatio),
                 (regexp: try! NSRegularExpression(pattern: "([\(k括弧閉)])(?=[\(k括弧開)])", options: []),
-                 negativeSpace: 0 - max(negativeSpaceRatio, KerningDefaultNegativeSpaceRatio) * 2)
+                 negativeSpace: 0 - max(negativeSpaceRatio, kerningDefaultNegativeSpaceRatio) * 2)
             ]
         case let .bracketsBothSide(negativeSpaceRatio):
             return [
@@ -58,7 +56,7 @@ public enum KerningType {
 public extension NSMutableAttributedString {
 
     @discardableResult
-    private func kern(_ regexp: NSRegularExpression, negativeSpace: CGFloat = 0 - KerningDefaultNegativeSpaceRatio) -> Self {
+    private final func kern(_ regexp: NSRegularExpression, negativeSpace: CGFloat = 0 - kerningDefaultNegativeSpaceRatio) -> Self {
         self.beginEditing()
         regexp.enumerateMatches(in: self.string, options: [], range: NSMakeRange(0, self.length)) { [weak self] (result, _, _) in
             guard let result = result, let `self` = self else { return }
@@ -71,7 +69,7 @@ public extension NSMutableAttributedString {
         return self
     }
 
-    public func kern(with type: KerningType) -> Self {
+    public final func kern(with type: KerningType) -> Self {
         type.setting.forEach { args in
             self.kern(args.regexp, negativeSpace: args.negativeSpace)
         }
@@ -79,7 +77,7 @@ public extension NSMutableAttributedString {
     }
 
     @discardableResult
-    public func kernBrackets(negativeSpaceRatio: CGFloat = 0) -> Self {
+    public final func kernBrackets(negativeSpaceRatio: CGFloat = 0) -> Self {
         self.beginEditing()
         regexpBrackets.enumerateMatches(in: self.string, options: [], range: NSMakeRange(0, self.length)) { [weak self] (result, _, _) in
             guard let result = result, let `self` = self else { return }
@@ -96,7 +94,7 @@ public extension NSMutableAttributedString {
         return self
     }
 
-    public func clearKerning(with range: NSRange) -> Self {
+    public final func clearKerning(with range: NSRange) -> Self {
         self.removeAttribute(.kern, range: range)
         return self
     }

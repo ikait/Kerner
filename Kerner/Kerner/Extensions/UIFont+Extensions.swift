@@ -11,7 +11,7 @@ import CoreText
 
 public extension UIFont {
 
-    public var altHalf: UIFont {
+    public final var altHalf: UIFont {
 
         let weight: UIFont.Weight = {
 
