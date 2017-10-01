@@ -1,5 +1,5 @@
 //
-//  NSRegularExpression+Extensions.swift
+//  String+Extensions.swift
 //  Kerner
 //
 //  Created by Taishi Ikai on 2017/09/30.
@@ -29,8 +29,12 @@ fileprivate let kPatternSettings: [(pattern: NSRegularExpression, template: Stri
         template: "<span class=\"__kerner_pad_right\">$1</span>$2"
     ),
     (
-        pattern: re("([\(k括弧開)\(k括弧閉)])"),
-        template: "<span class=\"__kerner_kern\">$1</span>"
+        pattern: re("([\(k括弧開)])"),
+        template: "<span class=\"__kerner_kern_left\">$1</span>"
+    ),
+    (
+        pattern: re("([\(k括弧閉)])"),
+        template: "<span class=\"__kerner_kern_right\">$1</span>"
     )
 ]
 

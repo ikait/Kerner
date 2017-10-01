@@ -10,7 +10,7 @@
 		4D8650341F5AC8A90099498A /* Kerner.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8650321F5AC8A90099498A /* Kerner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D86505B1F5AC8FD0099498A /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86505A1F5AC8FD0099498A /* NSMutableAttributedString+Extensions.swift */; };
 		4D86505D1F5AC93C0099498A /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86505C1F5AC93C0099498A /* UIFont+Extensions.swift */; };
-		4DB581C31F7FD79B0063B6E2 /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB581C21F7FD79B0063B6E2 /* NSRegularExpression+Extensions.swift */; };
+		4DB581C31F7FD79B0063B6E2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB581C21F7FD79B0063B6E2 /* String+Extensions.swift */; };
 		4DB581C51F7FD8BE0063B6E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB581C41F7FD8BE0063B6E2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,7 +20,7 @@
 		4D8650331F5AC8A90099498A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D86505A1F5AC8FD0099498A /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		4D86505C1F5AC93C0099498A /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
-		4DB581C21F7FD79B0063B6E2 /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
+		4DB581C21F7FD79B0063B6E2 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		4DB581C41F7FD8BE0063B6E2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 			children = (
 				4D86505A1F5AC8FD0099498A /* NSMutableAttributedString+Extensions.swift */,
 				4D86505C1F5AC93C0099498A /* UIFont+Extensions.swift */,
-				4DB581C21F7FD79B0063B6E2 /* NSRegularExpression+Extensions.swift */,
+				4DB581C21F7FD79B0063B6E2 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DB581C31F7FD79B0063B6E2 /* NSRegularExpression+Extensions.swift in Sources */,
+				4DB581C31F7FD79B0063B6E2 /* String+Extensions.swift in Sources */,
 				4D86505D1F5AC93C0099498A /* UIFont+Extensions.swift in Sources */,
 				4D86505B1F5AC8FD0099498A /* NSMutableAttributedString+Extensions.swift in Sources */,
 				4DB581C51F7FD8BE0063B6E2 /* Constants.swift in Sources */,

@@ -21,8 +21,9 @@ final class WebViewController: UIViewController {
     }()
 
     lazy var webView: WKWebView = {
-        let wkWebView = WKWebView()
-        return wkWebView
+        let webView = WKWebView()
+        webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+        return webView
     }()
 
     override func viewDidLoad() {
