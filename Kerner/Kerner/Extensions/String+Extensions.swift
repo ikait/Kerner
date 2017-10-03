@@ -20,12 +20,12 @@ fileprivate let kPatternSettings: [(pattern: NSRegularExpression, template: Stri
     ),
     (
         // 括弧の左に空白を入れる
-        pattern: re("([^\(k記号)\(k句読点)\(k括弧開)\(k括弧閉)\\s])([\(k括弧開)])"),
+        pattern: re("([^\(k記号)\(k句読点)\(k括弧開)\(k括弧閉)\\s]+?)([\(k括弧開)])"),
         template: "<span class=\"__kerner_pad_right\">$1</span>$2"
     ),
     (
         // 括弧の右に空白を入れる
-        pattern: re("([\(k括弧閉)])([^\(k記号)\(k句読点)\(k括弧開)\(k括弧閉)\\s])"),
+        pattern: re("([\(k括弧閉)])([^\(k記号)\(k句読点)\(k括弧開)\(k括弧閉)\\s]+?)"),
         template: "<span class=\"__kerner_pad_right\">$1</span>$2"
     ),
     (
