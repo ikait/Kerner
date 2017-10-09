@@ -13,7 +13,7 @@ let drawingOptions: NSStringDrawingOptions = [
     .truncatesLastVisibleLine
 ]
 
-class CellView: UIView {
+final class CellView: UIView {
 
     var paragraphStyle: NSParagraphStyle = {
         var paragraphStyle = NSMutableParagraphStyle()
@@ -48,10 +48,16 @@ class CellView: UIView {
         self.backgroundColor = .white
     }
 
-    override func draw(_ rect: CGRect) {
-        self.attrstr.draw(with: CGRect.init(x: 0, y: 0, width: rect.width, height: CGFloat.greatestFiniteMagnitude).integral,
-                          options: drawingOptions,
-                          context: nil)
+    @discardableResult
+    static func draw(_ attributedString: NSAttributedString, in rect: CGRect) -> CGImage? {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        UIGraphicsPushContext(context)
+        attributedString.draw(with: rect.integral, options: drawingOptions, context: nil)
+        let image = context.makeImage()
+        UIGraphicsEndImageContext()
+        return image
     }
 }
 
@@ -65,6 +71,23 @@ class TableViewCell: UITableViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    override func layoutSubviews() {
+
+        let bounds = self.bounds
+        let attributedString = cellView.attrstr
+
+        DispatchQueue.global().async {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
+            guard let image = CellView.draw(attributedString, in: bounds) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.cellView.layer.contents = image
+                super.layoutSubviews()
+            }
+        }
     }
 }
 
