@@ -58,6 +58,6 @@ public extension UIFont {
             .featureSettings: featureSettings,
         ])
 
-        return UIFont(descriptor: fontDescriptor, size: self.pointSize - 1)
+        return UIFont(descriptor: fontDescriptor, size: pointSize)
     }
 }
