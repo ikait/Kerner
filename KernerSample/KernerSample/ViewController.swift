@@ -9,6 +9,15 @@
 import UIKit
 import Kerner
 
+private func getFont(size: CGFloat = UIFont.systemFontSize, weight: UIFont.Weight = .regular) -> UIFont {
+    return UIFont(descriptor: UIFontDescriptor(fontAttributes: [
+        UIFontDescriptor.AttributeName.family: "Hiragino Sans",
+        UIFontDescriptor.AttributeName.traits: [
+            UIFontDescriptor.TraitKey.weight: weight.rawValue
+        ]
+    ]), size: size)
+}
+
 class TestView: UIView {
 
     lazy var paragraphStyle: NSParagraphStyle = {
@@ -24,7 +33,7 @@ class TestView: UIView {
             attributes: [
                 .foregroundColor: UIColor.black,
                 .paragraphStyle: self.paragraphStyle,
-                .font: UIFont.systemFont(ofSize: 14),
+                .font: getFont(size: 14)
             ]
         ).kernBrackets()  // This make kerning to brackets enable
         return attrstr

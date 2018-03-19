@@ -9,9 +9,16 @@
 import UIKit
 import CoreText
 
+private let featureSettings: [[UIFontDescriptor.FeatureKey: Int]] = [
+    [
+        .featureIdentifier: kTextSpacingType,
+        .typeIdentifier: kAltHalfWidthTextSelector
+    ]
+]
+
 public extension UIFont {
 
-    public final var altHalf: UIFont {
+    private final var systemAltHalf: UIFont {
 
         let weight: UIFont.Weight = {
 
@@ -21,32 +28,20 @@ public extension UIFont {
                 .init(rawValue: "NSCTFontUIUsageAttribute")] as? String ?? ""
 
             switch usageAttribute {
-                case "CTFontEmphasizedUsage", "CTFontBoldUsage":
-                    weight = .bold
-                case "CTFontDemiUsage":
-                    weight = .bold
-                default:
-                    break
+            case "CTFontEmphasizedUsage", "CTFontBoldUsage":
+                weight = .bold
+            case "CTFontDemiUsage":
+                weight = .bold
+            default:
+                break
             }
 
             return weight
         }()
 
-        var familyName = self.familyName
+        let familyName = "Hiragino Sans"
 
-        var pointSize = self.pointSize
-
-        if familyName.starts(with: ".SF") {
-            familyName = "Hiragino Sans"
-            pointSize = pointSize - 1
-        }
-
-        let featureSettings: [[UIFontDescriptor.FeatureKey: Int]] = [
-            [
-                .featureIdentifier: kTextSpacingType,
-                .typeIdentifier: kAltHalfWidthTextSelector
-            ]
-        ]
+        let pointSize = self.pointSize - 1
 
         let traits: [UIFontDescriptor.TraitKey: CGFloat] = [
             .weight: weight.rawValue
@@ -59,5 +54,18 @@ public extension UIFont {
         ])
 
         return UIFont(descriptor: fontDescriptor, size: pointSize)
+    }
+
+    public final var altHalf: UIFont {
+
+        if self.familyName.starts(with: ".SF") {
+            return self.systemAltHalf
+        }
+
+        var attributes = self.fontDescriptor.fontAttributes
+
+        attributes[.featureSettings] = featureSettings
+
+        return UIFont(descriptor: UIFontDescriptor(fontAttributes: attributes), size: self.pointSize)
     }
 }
