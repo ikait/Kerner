@@ -33,7 +33,7 @@ class TestView: UIView {
             attributes: [
                 .foregroundColor: UIColor.black,
                 .paragraphStyle: self.paragraphStyle,
-                .font: getFont(size: 14)
+                .font: getFont(size: 28)
             ]
         ).kernBrackets()  // This make kerning to brackets enable
         return attrstr
@@ -58,10 +58,28 @@ class ViewController: UIViewController {
 
     let testView = TestView()
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        self.title = "Text"
+
+        self.view.backgroundColor = .white
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
-        self.testView.frame = self.view.frame.insetBy(dx: 10, dy: 10)
         self.view.addSubview(self.testView)
+    }
+
+    override func viewDidLayoutSubviews() {
+
+        self.testView.frame = self.view.bounds.insetBy(dx: 11, dy: self.topLayoutGuide.length)
     }
 }

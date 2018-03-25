@@ -31,7 +31,7 @@ final class CellView: UIView {
                 attributes: [
                     .foregroundColor: UIColor.black,
                     .paragraphStyle: paragraphStyle,
-                    .font: UIFont.systemFont(ofSize: 14)
+                    .font: UIFont(name: "Hiragino Sans", size: 18)!
                 ]
             ).kernBrackets()
         }
@@ -44,8 +44,7 @@ final class CellView: UIView {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.backgroundColor = .white
+        fatalError("init(coder:) has not been implemented")
     }
 
     @discardableResult
@@ -63,17 +62,23 @@ final class CellView: UIView {
 
 class TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellView: CellView!
+    let cellView = CellView(frame: .zero)
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        self.contentView.addSubview(self.cellView)
     }
 
     required init?(coder aDecoder: NSCoder) {
+
         super.init(coder: aDecoder)
     }
 
     override func layoutSubviews() {
+
+        self.cellView.frame = self.bounds
 
         let bounds = self.bounds
         let attributedString = cellView.attrstr
@@ -95,7 +100,21 @@ class TableViewController: UITableViewController {
 
     let heightCache = Cache<IndexPath, CGFloat>()
 
+    init() {
+
+        super.init(nibName: nil, bundle: nil)
+
+        self.title = "Table"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
+
+        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
+
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 0
     }
@@ -109,7 +128,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let view = CellView()
+        let view = CellView(frame: .zero)
         view.text = Sentences[indexPath.row % Sentences.count]
 
         if let height = self.heightCache.object(forKey: indexPath) {

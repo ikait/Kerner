@@ -84,7 +84,10 @@ public extension NSMutableAttributedString {
             let (location, length) = (result.range.location, result.range.length)
             let curAttrs = self.attributes(at: location, effectiveRange: nil)
             let font = curAttrs[.font] as? UIFont ?? defaultFont
-            self.addAttribute(.font, value: font.altHalf, range: NSMakeRange(location, length))
+
+            self.addAttributes([
+                .font: font.altHalf
+            ], range: NSMakeRange(location, length))
         }
         self.endEditing()
 

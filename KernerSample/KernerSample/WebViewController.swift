@@ -11,7 +11,7 @@ import WebKit
 
 final class WebViewController: UIViewController {
 
-    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    var reloadButton = UIBarButtonItem()
 
     lazy var htmlString: String = {
         guard let htmlFile = Bundle.main.path(forResource: "sample", ofType: "html") else {
@@ -26,7 +26,19 @@ final class WebViewController: UIViewController {
         return webView
     }()
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        self.title = "Web View"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         self.view.addSubview(self.webView)

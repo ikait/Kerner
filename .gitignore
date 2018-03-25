@@ -38,6 +38,7 @@ fastlane/xcov_report/
 
 ### Carthage ###
 Carthage/*
+*/Carthage/*
 
 ### Bundler ###
 .bundle/*
