@@ -4,7 +4,7 @@
 // https://gist.github.com/mohamede1945/8816d49a87000ffd02e8fda97e5d242c
 //
 
-import Foundation
+import UIKit
 
 private class ObjectWrapper {
     let value: Any
@@ -41,7 +41,7 @@ open class Cache<KeyType: Hashable, ObjectType> {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(onLowMemory),
-            name: .UIApplicationDidReceiveMemoryWarning,
+            name: UIApplication.didReceiveMemoryWarningNotification,
             object: nil)
     }
 

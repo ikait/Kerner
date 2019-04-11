@@ -69,7 +69,7 @@ public extension NSMutableAttributedString {
         return self
     }
 
-    public final func kern(with type: KerningType) -> Self {
+    final func kern(with type: KerningType) -> Self {
         type.setting.forEach { args in
             self.kern(args.regexp, negativeSpace: args.negativeSpace)
         }
@@ -77,7 +77,7 @@ public extension NSMutableAttributedString {
     }
 
     @discardableResult
-    public final func kernBrackets(negativeSpaceRatio: CGFloat = 0) -> Self {
+    final func kernBrackets(negativeSpaceRatio: CGFloat = 0) -> Self {
         self.beginEditing()
         regexpBrackets.enumerateMatches(in: self.string, options: [], range: NSMakeRange(0, self.length)) { [weak self] (result, _, _) in
             guard let result = result, let `self` = self else { return }
@@ -97,7 +97,7 @@ public extension NSMutableAttributedString {
         return self
     }
 
-    public final func clearKerning(with range: NSRange) -> Self {
+    final func clearKerning(with range: NSRange) -> Self {
         self.removeAttribute(.kern, range: range)
         return self
     }

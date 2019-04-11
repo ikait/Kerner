@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D7DD7A82067393000ED608B /* AsyncTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7DD7A72067393000ED608B /* AsyncTableViewController.swift */; };
 		4D8129771F5B22AB00B2C9B9 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8129761F5B22AB00B2C9B9 /* Cache.swift */; };
 		4D8650471F5AC8C80099498A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8650461F5AC8C80099498A /* AppDelegate.swift */; };
 		4D8650491F5AC8C80099498A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8650481F5AC8C80099498A /* ViewController.swift */; };
@@ -16,8 +15,6 @@
 		4D86505F1F5AC9F90099498A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86505E1F5AC9F90099498A /* TableViewController.swift */; };
 		4D9441891F5ACC80007F4364 /* Kerner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6ACF5D1F5ACC0700082F80 /* Kerner.framework */; };
 		4D94418A1F5ACC80007F4364 /* Kerner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6ACF5D1F5ACC0700082F80 /* Kerner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4DAD7C9F20673BB100831926 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD7C9D20673BAC00831926 /* AsyncDisplayKit.framework */; };
-		4DAD7CA020673BB100831926 /* AsyncDisplayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD7C9D20673BAC00831926 /* AsyncDisplayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DBABB111F5ACAB3004DC2C3 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBABB101F5ACAB3004DC2C3 /* Samples.swift */; };
 		4DE667331F7FE4F700067B6A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE667321F7FE4F700067B6A /* WebViewController.swift */; };
 		4DE667351F7FF5A800067B6A /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DE667341F7FF5A800067B6A /* sample.html */; };
@@ -48,7 +45,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4D94418A1F5ACC80007F4364 /* Kerner.framework in Embed Frameworks */,
-				4DAD7CA020673BB100831926 /* AsyncDisplayKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		4D6ACF581F5ACC0700082F80 /* Kerner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kerner.xcodeproj; path = ../Kerner/Kerner.xcodeproj; sourceTree = "<group>"; };
-		4D7DD7A72067393000ED608B /* AsyncTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTableViewController.swift; sourceTree = "<group>"; };
 		4D8129761F5B22AB00B2C9B9 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		4D8650431F5AC8C80099498A /* KernerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KernerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8650461F5AC8C80099498A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9441891F5ACC80007F4364 /* Kerner.framework in Frameworks */,
-				4DAD7C9F20673BB100831926 /* AsyncDisplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +112,6 @@
 				4D8650481F5AC8C80099498A /* ViewController.swift */,
 				4D86505E1F5AC9F90099498A /* TableViewController.swift */,
 				4DE667321F7FE4F700067B6A /* WebViewController.swift */,
-				4D7DD7A72067393000ED608B /* AsyncTableViewController.swift */,
 				4DBABB101F5ACAB3004DC2C3 /* Samples.swift */,
 				4D8129761F5B22AB00B2C9B9 /* Cache.swift */,
 				4DE667341F7FF5A800067B6A /* sample.html */,
@@ -166,11 +159,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Ikai;
 				TargetAttributes = {
 					4D8650421F5AC8C80099498A = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -227,7 +221,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D7DD7A82067393000ED608B /* AsyncTableViewController.swift in Sources */,
 				4D8650491F5AC8C80099498A /* ViewController.swift in Sources */,
 				4DE667331F7FE4F700067B6A /* WebViewController.swift in Sources */,
 				4D8129771F5B22AB00B2C9B9 /* Cache.swift in Sources */,
@@ -273,6 +266,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -280,6 +274,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -330,6 +325,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -337,6 +333,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -375,14 +372,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6MB3X54G28;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = KernerSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tokyo.ikai.KernerSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -395,14 +392,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MB3X54G28;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = KernerSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tokyo.ikai.KernerSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

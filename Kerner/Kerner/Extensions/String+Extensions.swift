@@ -40,7 +40,7 @@ fileprivate let kPatternSettings: [(pattern: NSRegularExpression, template: Stri
 
 public extension String {
 
-    public var markedForKerningHTMLString: String {
+    var markedForKerningHTMLString: String {
 
         let target = NSMutableString(string: self)
 

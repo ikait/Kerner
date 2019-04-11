@@ -56,7 +56,7 @@ public extension UIFont {
         return UIFont(descriptor: fontDescriptor, size: pointSize)
     }
 
-    public final var altHalf: UIFont {
+    final var altHalf: UIFont {
 
         if self.familyName.starts(with: ".SF") {
             return self.systemAltHalf

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabVC.setViewControllers([
             UINavigationController(rootViewController: ViewController()),
             UINavigationController(rootViewController: TableViewController()),
-            UINavigationController(rootViewController: AsyncTableViewController()),
             UINavigationController(rootViewController: WebViewController())
         ], animated: false)
 
