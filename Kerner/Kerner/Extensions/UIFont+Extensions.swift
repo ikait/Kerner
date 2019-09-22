@@ -58,7 +58,7 @@ public extension UIFont {
 
     final var altHalf: UIFont {
 
-        if self.familyName.starts(with: ".SF") {
+        if self.familyName.starts(with: ".SF") || self.familyName.starts(with: ".AppleSystem") {
             return self.systemAltHalf
         }
 
