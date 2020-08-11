@@ -8,9 +8,9 @@
       location = "group:Package.swift">
    </FileRef>
    <FileRef
-      location = "group:KernerSample/KernerSample.xcodeproj">
+      location = "group:Sample/KernerSample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Kerner/Kerner.xcodeproj">
+      location = "group:Kerner.xcodeproj">
    </FileRef>
 </Workspace>
