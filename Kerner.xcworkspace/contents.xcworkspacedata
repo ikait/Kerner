@@ -2,9 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:KernerSample/KernerSample.xcodeproj">
+      location = "group:README.md">
    </FileRef>
    <FileRef
-      location = "group:Kerner/Kerner.xcodeproj">
+      location = "group:Package.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Sample/KernerSample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Kerner.xcodeproj">
    </FileRef>
 </Workspace>

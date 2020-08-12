@@ -38,6 +38,7 @@
 		4D8650251F5AC8A80099498A = {
 			isa = PBXGroup;
 			children = (
+				4D8650331F5AC8A90099498A /* Info.plist */,
 				4D8650311F5AC8A90099498A /* Kerner */,
 				4D8650301F5AC8A90099498A /* Products */,
 			);
@@ -56,10 +57,10 @@
 			children = (
 				4D8650591F5AC8F10099498A /* Extensions */,
 				4D8650321F5AC8A90099498A /* Kerner.h */,
-				4D8650331F5AC8A90099498A /* Info.plist */,
 				4DB581C41F7FD8BE0063B6E2 /* Constants.swift */,
 			);
-			path = Kerner;
+			name = Kerner;
+			path = Sources/Kerner;
 			sourceTree = "<group>";
 		};
 		4D8650591F5AC8F10099498A /* Extensions */ = {
